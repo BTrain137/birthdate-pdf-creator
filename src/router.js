@@ -47,7 +47,8 @@ function createRouter() {
       contextRequest: true,
     },
   };
-  router.post('/api/render', validate(postRenderSchema), render.postRender);
+  // Removing Post request not required for this project;
+  // router.post('/api/render', validate(postRenderSchema), render.postRender);
 
   return router;
 }

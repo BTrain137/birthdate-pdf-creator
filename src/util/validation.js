@@ -20,6 +20,7 @@ const cookieSchema = Joi.object({
 });
 
 const sharedQuerySchema = Joi.object({
+  key_auth: Joi.string(),
   attachmentName: Joi.string(),
   scrollPage: Joi.boolean(),
   emulateScreenMedia: Joi.boolean(),

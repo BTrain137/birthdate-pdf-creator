@@ -22,6 +22,14 @@ function getMimeType(opts) {
 }
 
 const getRender = ex.createRoute((req, res) => {
+	console.log("req.query.key_auth", req.query.key_auth);
+  console.log("config.KEY_AUTH", config.KEY_AUTH);
+	
+  // As Project gets bigger key will be an array.
+  if (req.query.key_auth !== config.KEY_AUTH) {
+    ex.throwStatus(400, 'Missing Key');
+  }
+
   const opts = getOptsFromQuery(req.query);
 
   assertOptionsAllowed(opts);
@@ -136,6 +144,7 @@ function assertOptionsAllowed(opts) {
 
 function getOptsFromQuery(query) {
   const opts = {
+    key_auth: query.key_auth,
     url: query.url,
     attachmentName: query.attachmentName,
     scrollPage: query.scrollPage,

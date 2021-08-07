@@ -21,7 +21,7 @@ curl -o ./html.pdf -XPOST -d'{"html": "<body>test</body>"}' -H"content-type: app
 ```
 
 ```bash
-curl -o ./google.pdf http://localhost:9000/api/render?url=http://google.com
+curl -o ./google.pdf http://localhost:9000/api/render?url=http://google.com&key_auth=
 ```
 
 #### Production CURL Commands
