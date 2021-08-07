@@ -27,9 +27,9 @@ curl -o ./google.pdf http://localhost:9000/api/render?url=http://google.com
 #### Production CURL Commands
 
 ```bash
-curl -o ./html.pdf -XPOST -d'{"html": "<body>test</body>"}' -H"content-type: application/json" https://rocky-wave-74746.herokuapp.com/api/render
+curl -o ./html.pdf -XPOST -d'{"html": "<body>test</body>"}' -H"content-type: application/json"  https://birthdate-pdf-creator.herokuapp.com/api/render
 ```
 
 ```bash
-curl -o ./google.pdf https://rocky-wave-74746.herokuapp.com/api/render?url=http://google.com
+curl -o ./google.pdf https://birthdate-pdf-creator.herokuapp.com/api/render?url=http://google.com
 ```
