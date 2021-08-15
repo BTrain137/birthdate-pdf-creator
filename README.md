@@ -39,4 +39,6 @@ curl -o ./html.pdf -XPOST -d'{"html": "<body>test</body>"}' -H"content-type: app
 curl -o ./google.pdf https://birthdate-pdf-creator.herokuapp.com/api/render?url=http://google.com\&key_auth\=
 
 https://birthdate-pdf-creator.herokuapp.com/api/render?url=http://google.com&key_auth=
+
+https://birthdate-pdf-creator.herokuapp.com/api/render?url=http://www.birthdate-card-creator.com&output=screenshot&message=Thank%20you%20for%20everything.%20Here%E2%80%99s%20my%20gift%20for%20you!%20Hope%20you%20enjoy%20it.&from=Jack&to=Jill&key_auth=
 ```
