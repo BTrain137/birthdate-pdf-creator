@@ -31,19 +31,22 @@ function getMimeType(opts) {
 }
 
 const getRender = ex.createRoute(async (req, res) => {
-  console.log('req.query.key_auth', req.query.key_auth);
-  console.log('config.KEY_AUTH', config.KEY_AUTH);
-
-  // As Project gets bigger key will be an array.
-  if (req.query.key_auth !== config.KEY_AUTH) {
+  if (!config.KEY_AUTH.split(',').includes(req.query.key_auth)) {
     ex.throwStatus(400, 'Missing Key');
   }
 
   const opts = getOptsFromQuery(req.query);
 
-  if (req.query.key_auth === 'birthdate-card-creator') {
+  if (req.query.url === 'http://www.birthdate-card-creator.com') {
     opts.url = undefined;
-    opts.html = await getRenderedHTML('../html/birthdate-cart-alt.html');
+    opts.html = await getRenderedHTML('../html/birthdate-cart.html');
+
+    const { from, to, message } = req.query;
+    opts.html = opts.html
+      .replace('{{from}}', from)
+      .replace('{{to}}', to)
+      .replace('{{message}}', message);
+
     opts.viewport.width = 450;
     opts.viewport.height = 530;
 
@@ -72,6 +75,8 @@ const postRender = ex.createRoute((req, res) => {
   } else if (_.isString(req.query.url)) {
     ex.throwStatus(400, 'url query parameter is not allowed when body is HTML');
   }
+
+  // TODO: Setup checking key auth like get request
 
   let opts;
   if (isBodyJson) {
