@@ -15,33 +15,39 @@
 			max-width: 450px;
 			max-height: 900px;
 		}
-		h1,h2,h3,h4,h5 {
+		img {
 			position: absolute;
-			width: 100%;
-			text-align: center;
-			font-size: 20px;
+			top: -27px;
+			z-index: -1;
 		}
-		h1 {
-			top: 50px;
+		h1,h2,h3,h4,h5 {
+			text-align: center;
+			font-size: 28px;
+			font-weight: normal;
 		}
 		h2 {
-			top: 110px;
+			padding-top: 100px;
 		}
 		h3 {
-			top: 300px;
-		}
-		h4 {
-			top: 400px;
+			height: 450px;
+			display: flex;
+			align-items: center;
 		}
 		h5 {
-			top: 500px;
+			margin-top: -5px;
+		}
+		p {
+			padding: 0 79px;
+			font-size: 30px;
 		}
 	</style>
 </head>
 <body>
 	<img src="https://cdn.shopify.com/s/files/1/0048/8475/8631/files/card-background.jpg?v=1628986427" />
-	<h2>Simone</h2>
-	<h3>Thank you for everything.  Here’s my gift for you! Hope you enjoy it.</h3>
-	<h5>Chris</h5>
+	<h2>{{from}}</h2>
+	<h3>
+		<p>{{message}}</p>
+  </h3>
+	<h5>{{to}}</h5>
 </body>
 </html>
