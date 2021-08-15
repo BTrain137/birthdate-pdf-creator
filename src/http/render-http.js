@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const { URL } = require('url');
 const _ = require('lodash');
 const normalizeUrl = require('normalize-url');
@@ -5,6 +7,13 @@ const ex = require('../util/express');
 const renderCore = require('../core/render-core');
 const logger = require('../util/logger')(__filename);
 const config = require('../config');
+
+function getRenderedHTML(fileLocation) {
+  return new Promise((resolve) => {
+    const html = fs.readFileSync(path.resolve(__dirname, fileLocation), 'utf8');
+    resolve(html);
+  });
+}
 
 function getMimeType(opts) {
   if (opts.output === 'pdf') {
@@ -21,16 +30,26 @@ function getMimeType(opts) {
   }
 }
 
-const getRender = ex.createRoute((req, res) => {
-	console.log("req.query.key_auth", req.query.key_auth);
-  console.log("config.KEY_AUTH", config.KEY_AUTH);
-	
+const getRender = ex.createRoute(async (req, res) => {
+  console.log('req.query.key_auth', req.query.key_auth);
+  console.log('config.KEY_AUTH', config.KEY_AUTH);
+
   // As Project gets bigger key will be an array.
   if (req.query.key_auth !== config.KEY_AUTH) {
     ex.throwStatus(400, 'Missing Key');
   }
 
   const opts = getOptsFromQuery(req.query);
+
+  if (req.query.key_auth === 'birthdate-card-creator') {
+    opts.url = undefined;
+    opts.html = await getRenderedHTML('../html/birthdate-cart-alt.html');
+    opts.viewport.width = 450;
+    opts.viewport.height = 530;
+
+    opts.pdf.width = 450;
+    opts.pdf.height = 905;
+  }
 
   assertOptionsAllowed(opts);
   return renderCore.render(opts)
