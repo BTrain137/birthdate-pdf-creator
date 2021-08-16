@@ -43,6 +43,8 @@ function createApp() {
   logger.info('Using CORS options:', corsOpts);
   app.use(cors(corsOpts));
 
+  app.use(express.static('public'));
+
   // Limit to 10mb if HTML has e.g. inline images
   app.use(bodyParser.text({ limit: '10mb', type: 'text/html' }));
   app.use(bodyParser.json({ limit: '10mb' }));
