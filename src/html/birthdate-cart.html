@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,45 +12,57 @@
 			position: relative;
 			margin: 0;
 		}
-		body, img {
+
+		body,
+		img {
 			width: 450px;
-			/* max-height: 900px; */
 		}
+
 		img {
 			position: absolute;
 			top: -27px;
 			z-index: -1;
 		}
-		h1,h2,h3,h4,h5 {
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
 			text-align: center;
 			font-size: 28px;
 			font-weight: normal;
 		}
+
 		h2 {
 			padding-top: 100px;
 		}
+
 		h3 {
 			height: 450px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 		}
+
 		h5 {
 			margin-top: -5px;
 		}
+
 		p {
 			padding: 0 79px;
 			font-size: 30px;
 		}
 	</style>
 </head>
+
 <body>
 	<img src="https://birthdate-pdf-creator.herokuapp.com/birthdate-card-bg.jpeg" />
 	<h2>{{to}}</h2>
 	<h3>
 		<p>{{message}}</p>
-  </h3>
+	</h3>
 	<h5>{{from}}</h5>
-	<img src="https://cdn.shopify.com/s/files/1/0048/8475/8631/t/66/assets/giftcard-back-aquarius.jpg?v=2673121177146955270" />
 </body>
+
 </html>
