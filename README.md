@@ -26,7 +26,7 @@ curl -o ./google.pdf http://localhost:9000/api/render?url=http://google.com&key_
 
 EncodeURI and screenshot
 ```
-http://localhost:9000/api/render/?url=http://www.birthdate-card-creator.com&output=screenshot&message=Thank%20you%20for%20everything.%20Here%E2%80%99s%20my%20gift%20for%20you!%20Hope%20you%20enjoy%20it.&from=Jack&to=Jill&key_auth=
+http://localhost:9000/api/render?url=http://www.birthdate-card-creator.com&output=screenshot&message=Thank%20you%20for%20everything.%20Here%E2%80%99s%20my%20gift%20for%20you!%20Hope%20you%20enjoy%20it%20%20%F0%9F%98%86.&from=Jack&to=Jill&key_auth=birthdate-card-creator&emulateScreenMedia=false&scrollPage=true
 ```
 
 #### Production CURL Commands
@@ -40,5 +40,7 @@ curl -o ./google.pdf https://birthdate-pdf-creator.herokuapp.com/api/render?url=
 
 https://birthdate-pdf-creator.herokuapp.com/api/render?url=http://google.com&key_auth=
 
-https://birthdate-pdf-creator.herokuapp.com/api/render?url=http://www.birthdate-card-creator.com&output=screenshot&message=Thank%20you%20for%20everything.%20Here%E2%80%99s%20my%20gift%20for%20you!%20Hope%20you%20enjoy%20it.&from=Jack&to=Jill&key_auth=
+https://birthdate-pdf-creator.herokuapp.com/api/render?url=http://www.birthdate-card-creator.com&output=screenshot&message=Thank%20you%20for%20everything.%20Here%E2%80%99s%20my%20gift%20for%20you!%20Hope%20you%20enjoy%20it%20%20%F0%9F%98%86.&from=Jack&to=Jill&key_auth=
 ```
+
+https://birthday-card-creator.herokuapp.com/api/render?url=http://www.birthdate-card-creator.com&output=screenshot&message=Thank%20you%20for%20everything.%20Here%E2%80%99s%20my%20gift%20for%20you!%20Hope%20you%20enjoy%20it%20%20%F0%9F%98%86.&from=Jack&to=Jill&key_auth=
