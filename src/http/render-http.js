@@ -38,17 +38,31 @@ const getRender = ex.createRoute(async (req, res) => {
   const opts = getOptsFromQuery(req.query);
 
   if (req.query.url === 'http://www.birthdate-card-creator.com') {
-    opts.url = undefined;
-    opts.html = await getRenderedHTML('../html/birthdate-cart.html');
+    const {
+      from, to, message, zodiac,
+    } = req.query;
+    let htmlTemplate;
 
-    const { from, to, message } = req.query;
+    if (zodiac) {
+      htmlTemplate = '../html/birthdate-cart-with-back.html';
+    } else {
+      htmlTemplate = '../html/birthdate-cart.html';
+    }
+
+    opts.url = undefined;
+    opts.html = await getRenderedHTML(htmlTemplate);
+
     opts.html = opts.html
       .replace('{{from}}', from)
       .replace('{{to}}', to)
       .replace('{{message}}', message);
 
+    if (zodiac) {
+      opts.html = opts.html.replace('{{zodiac_back_card}}', zodiac);
+    }
+
     opts.viewport.width = 450;
-    opts.viewport.height = 530;
+    // opts.viewport.height = 530;
 
     opts.pdf.width = 450;
     opts.pdf.height = 905;

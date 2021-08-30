@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gift Card</title>
+	<style>
+		body {
+			width: fit-content;
+			position: relative;
+			margin: 0;
+		}
+
+		body,
+		img {
+			width: 450px;
+		}
+
+		img {
+			position: absolute;
+			top: -27px;
+			z-index: -1;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			text-align: center;
+			font-size: 28px;
+			font-weight: normal;
+		}
+
+		h2 {
+			padding-top: 100px;
+		}
+
+		h3 {
+			height: 450px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		h5 {
+			margin-top: -5px;
+		}
+
+		p {
+			padding: 0 79px;
+			font-size: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<img src="https://birthdate-pdf-creator.herokuapp.com/birthdate-card-bg.jpeg" />
+	<h2>{{to}}</h2>
+	<h3>
+		<p>{{message}}</p>
+	</h3>
+	<h5>{{from}}</h5>
+	<img style="top:873px;"
+		src="https://birthdate-pdf-creator.herokuapp.com/{{zodiac_back_card}}.jpeg" />
+</body>
+
+</html>
