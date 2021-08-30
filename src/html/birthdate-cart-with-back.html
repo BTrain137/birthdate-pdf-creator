@@ -11,17 +11,25 @@
 			width: fit-content;
 			position: relative;
 			margin: 0;
+			background-color: #FCE4C5;
 		}
 
 		body,
 		img {
-			width: 450px;
+			width: 452px;
+			max-height: 894px;
 		}
 
 		img {
 			position: absolute;
-			/* top: -27px; */
 			z-index: -1;
+		}
+		
+		.font-card {
+			top: -27px;
+		}
+		.zodiac-image {
+			top: 871px;
 		}
 
 		h1,
@@ -57,14 +65,13 @@
 </head>
 
 <body>
-	<img src="https://birthdate-pdf-creator.herokuapp.com/birthdate-card-bg.jpeg" />
+	<img class="font-card" src="https://birthdate-pdf-creator.herokuapp.com/birthdate-card-bg.jpeg" />
 	<h2>{{to}}</h2>
 	<h3>
 		<p>{{message}}</p>
 	</h3>
 	<h5>{{from}}</h5>
-	<img style="top:873px;"
-		src="https://birthdate-pdf-creator.herokuapp.com/{{zodiac_back_card}}.jpg" />
+	<img class="zodiac-image" src="https://birthdate-pdf-creator.herokuapp.com/{{zodiac_back_card}}.jpg" />
 </body>
 
 </html>
