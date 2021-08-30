@@ -24,6 +24,7 @@ const sharedQuerySchema = Joi.object({
   from: Joi.string().min(1).max(20),
   to: Joi.string().min(1).max(20),
   message: Joi.string().min(1).max(100),
+  zodiac: Joi.string().min(1).max(50),
 
   key_auth: Joi.string(),
   attachmentName: Joi.string(),
