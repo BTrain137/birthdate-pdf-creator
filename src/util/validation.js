@@ -23,7 +23,7 @@ const sharedQuerySchema = Joi.object({
   // Birthdate Card Creator
   from: Joi.string().min(1).max(20),
   to: Joi.string().min(1).max(20),
-  message: Joi.string().min(1).max(100),
+  message: Joi.string().min(1).max(120),
   zodiac: Joi.string().min(1).max(50),
 
   key_auth: Joi.string(),
