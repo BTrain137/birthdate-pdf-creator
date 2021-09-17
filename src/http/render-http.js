@@ -62,10 +62,10 @@ const getRender = ex.createRoute(async (req, res) => {
     }
 
     opts.viewport.width = 452;
-    opts.viewport.height = 530;
+    opts.viewport.height = 531;
 
     opts.pdf.width = 452;
-    opts.pdf.height = 735;
+    opts.pdf.height = 792;
   }
 
   assertOptionsAllowed(opts);
