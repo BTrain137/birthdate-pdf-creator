@@ -7,6 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Gift Card</title>
 	<style>
+		:root {
+			--pdf-width: 288px;
+			--pdf-height: 504px;
+		}
+
 		@font-face {
 			font-family: 'TradeGothicNextLTPro';
 			src: url('https://cdn.shopify.com/s/files/1/0048/8475/8631/files/TradeGothicNextLTPro-Regular.eot?v=1631849740');
@@ -30,7 +35,7 @@
 
 		body,
 		img {
-			width: 452px;
+			width: var(--pdf-width);
 		}
 
 		img {
@@ -39,12 +44,12 @@
 		}
 
 		.front-card {
-			max-height: 792px;
+			height: var(--pdf-height);
 		}
 
 		.zodiac-image {
-			top: 792px;
-			max-height: 792px;
+			top: var(--pdf-height);
+			height: var(--pdf-height);
 		}
 
 		h1,
@@ -88,7 +93,7 @@
 			word-break: break-word;
 			padding: 0 79px;
 			font-size: 22px;
-			width: 452px;
+			width: var(--pdf-width);;
 		}
 
 		.hr-from,
