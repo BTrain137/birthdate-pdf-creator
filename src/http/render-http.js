@@ -61,11 +61,11 @@ const getRender = ex.createRoute(async (req, res) => {
       opts.html = opts.html.replace('{{zodiac_back_card}}', zodiac);
     }
 
-    opts.viewport.width = 288;
-    opts.viewport.height = 531;
+    opts.viewport.width = 368;
+    opts.viewport.height = 584;
 
-    opts.pdf.width = 288;
-    opts.pdf.height = 504;
+    opts.pdf.width = 368;
+    opts.pdf.height = 584;
   }
 
   assertOptionsAllowed(opts);

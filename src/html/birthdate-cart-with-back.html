@@ -8,8 +8,13 @@
 	<title>Gift Card</title>
 	<style>
 		:root {
-			--pdf-width: 288px;
-			--pdf-height: 504px;
+			--pdf-width: 368px;
+			--pdf-height: 584px;
+			--img-width: 288px;
+			--img-height: 504px;
+			--total-space: 39px;
+			--white-space: 27px;
+			--bleed-space: 12px
 		}
 
 		@font-face {
@@ -27,15 +32,16 @@
 		}
 
 		body {
-			width: fit-content;
 			position: relative;
 			margin: 0;
-			background-color: black;
+			background-color: white;
+			width: var(--pdf-width);
+			height: calc(var(--pdf-height) * 2);
+			/* border: solid 1px red; */
 		}
 
-		body,
 		img {
-			width: var(--pdf-width);
+			width: var(--img-width);
 		}
 
 		img {
@@ -44,12 +50,35 @@
 		}
 
 		.front-card {
-			height: var(--pdf-height);
+			height: var(--img-height);
+			top: var(--total-space);
+			right: var(--total-space);
+		}
+
+		.font-card-bg {
+			background-color: #F9E6CA;
+			z-index: -1;
+			position: absolute;
+			top: var(--white-space);
+			right: var(--white-space);
+			width: calc(var(--img-width) + var(--bleed-space) + var(--bleed-space));
+			height: calc(var(--img-height) + var(--bleed-space) + var(--bleed-space));
 		}
 
 		.zodiac-image {
-			top: var(--pdf-height);
-			height: var(--pdf-height);
+			height: var(--img-height);
+			top: calc(var(--total-space) + var(--pdf-height));
+			right: var(--total-space);
+		}
+
+		.zodiac-image-bg {
+			background-color: #0A090E;
+			z-index: -1;
+			position: absolute;
+			top: calc(var(--white-space) + var(--pdf-height));
+			right: var(--white-space);
+			width: calc(var(--img-width) + var(--bleed-space) + var(--bleed-space));
+			height: calc(var(--img-height) + var(--bleed-space) + var(--bleed-space));
 		}
 
 		h1,
@@ -82,7 +111,7 @@
 		}
 
 		.h2 {
-			padding-top: 56px;
+			padding-top: 90px;
 		}
 
 		.h5 {
@@ -91,7 +120,7 @@
 
 		p {
 			word-break: break-word;
-			padding: 0 40px;
+			padding: 0 77px;
 			font-size: 16px;
 			width: var(--pdf-width);
 			;
@@ -117,7 +146,8 @@
 </head>
 
 <body>
-	<img class="font-card" src="https://birthdate-pdf-creator.herokuapp.com/birthdate-card-bg.jpg" />
+	<div class="font-card-bg"></div>
+	<img class="front-card" src="https://birthdate-pdf-creator.herokuapp.com/birthdate-card-bg.jpg" />
 	<h2 class="h2 font-heading">TO</h2>
 	<hr class="hr-to" />
 	<h2>{{to}}</h2>
@@ -127,7 +157,8 @@
 	<h5 class="h5 font-heading">FROM</h5>
 	<hr class="hr-from" />
 	<h5>{{from}}</h5>
-	<img class="zodiac-image" src="https://birthdate-pdf-creator.herokuapp.com/{{zodiac_back_card}}.jpg" />
+	<div class="zodiac-image-bg"></div>
+	<img class="zodiac-image" src="https://birthdate-pdf-creator.herokuapp.com/leo.jpg" />
 </body>
 
 </html>
