@@ -21,9 +21,9 @@ const cookieSchema = Joi.object({
 
 const sharedQuerySchema = Joi.object({
   // Birthdate Card Creator
-  from: Joi.string().min(1).max(20),
-  to: Joi.string().min(1).max(20),
-  message: Joi.string().min(1).max(120),
+  from: Joi.string().min(1).max(50),
+  to: Joi.string().min(1).max(50),
+  message: Joi.string().min(1).max(500),
   zodiac: Joi.string().min(1).max(50),
 
   key_auth: Joi.string(),
